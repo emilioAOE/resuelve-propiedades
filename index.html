@@ -81,7 +81,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
+  "@type": ["RealEstateAgent", "LegalService"],
   "name": "Resuelve Propiedades",
   "description": "Asesoría legal especializada en propiedades con situaciones complejas: herencias, remates, embargos, disputas entre socios. Conexión con inversionistas verificados en Chile.",
   "url": "https://www.resuelvepropiedades.cl/",
@@ -113,6 +113,20 @@
   "@type": "WebSite",
   "name": "Resuelve Propiedades",
   "url": "https://www.resuelvepropiedades.cl/"
+}
+</script>
+
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Inicio",
+    "item": "https://www.resuelvepropiedades.cl/"
+  }]
 }
 </script>
 
@@ -885,6 +899,8 @@
     <div class="nav-inner">
       <a href="/" class="logo" aria-label="Resuelve Propiedades - Inicio">Resuelve<span>Propiedades</span></a>
       <div class="nav-links">
+        <a href="/quienes-somos/" style="color:var(--color-dark);background:none;">Quiénes Somos</a>
+        <a href="/blog/" style="color:var(--color-dark);background:none;">Blog</a>
         <a href="#vendedores" class="btn-seller">Tengo una propiedad</a>
         <a href="#inversionistas" class="btn-investor">Soy inversionista</a>
       </div>
@@ -893,6 +909,8 @@
       </button>
     </div>
     <div class="mobile-menu" role="menu">
+      <a href="/quienes-somos/" style="background:none;color:var(--color-dark);" role="menuitem">Quiénes Somos</a>
+      <a href="/blog/" style="background:none;color:var(--color-dark);" role="menuitem">Blog</a>
       <a href="#vendedores" class="btn-seller" role="menuitem">Tengo una propiedad</a>
       <a href="#inversionistas" class="btn-investor" role="menuitem">Soy inversionista</a>
     </div>
@@ -1238,18 +1256,21 @@
     </div>
     <div class="footer-col">
       <h4>Servicios</h4>
-      <a href="#vendedores">Para propietarios</a>
-      <a href="#inversionistas">Para inversionistas</a>
-      <a href="#preguntas">Preguntas frecuentes</a>
+      <a href="/herencias-propiedades/">Herencias</a>
+      <a href="/remates-embargos/">Remates y embargos</a>
+      <a href="/problemas-titulo-propiedad/">Problemas de titulo</a>
+      <a href="/propiedades-inversion/">Para inversionistas</a>
     </div>
     <div class="footer-col">
-      <h4>Contacto</h4>
+      <h4>Empresa</h4>
+      <a href="/quienes-somos/">Quiénes somos</a>
+      <a href="/blog/">Blog</a>
       <a href="https://wa.me/56994495238" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       <a href="mailto:contacto@resuelvepropiedades.cl">Email</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 ResuelvePropiedades. Todos los derechos reservados.</p>
+    <p>&copy; 2026 ResuelvePropiedades. Todos los derechos reservados. <a href="/politica-privacidad/" style="color:rgba(255,255,255,0.6);">Privacidad</a> · <a href="/terminos-servicio/" style="color:rgba(255,255,255,0.6);">Términos</a></p>
   </div>
 </footer>
 

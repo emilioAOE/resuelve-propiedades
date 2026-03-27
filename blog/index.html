@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Resuelve Propiedades | Guías Legales de Propiedades en Chile</title>
+<meta name="description" content="Artículos y guías sobre herencias, remates, títulos de propiedad y más. Información legal práctica para propietarios e inversionistas en Chile.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.resuelvepropiedades.cl/blog/">
+
+<meta property="og:title" content="Blog — Resuelve Propiedades | Guías Legales de Propiedades en Chile">
+<meta property="og:description" content="Artículos y guías sobre herencias, remates, títulos de propiedad y más. Información legal práctica para propietarios e inversionistas en Chile.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.resuelvepropiedades.cl/blog/">
+<meta property="og:site_name" content="Resuelve Propiedades">
+<meta property="og:locale" content="es_CL">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #FAFAF7;
+    --color-dark: #1A1A1A;
+    --color-warm: #2D5A3D;
+    --color-warm-light: #3A7A52;
+    --color-warm-bg: #EEF5F0;
+    --color-accent: #C4762B;
+    --color-accent-light: #F5EDE3;
+    --color-muted: #6B6B6B;
+    --color-border: #E0DDD6;
+    --color-white: #FFFFFF;
+    --color-investor: #1B3A5C;
+    --color-investor-light: #E8EFF6;
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+    --radius: 12px;
+    --shadow-soft: 0 2px 20px rgba(0,0,0,0.06);
+    --shadow-card: 0 4px 30px rgba(0,0,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--color-dark);
+    background: var(--color-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .skip-link {
+    position: absolute; top: -100%; left: 16px;
+    background: var(--color-warm); color: white;
+    padding: 8px 16px; border-radius: 0 0 8px 8px;
+    z-index: 200; font-weight: 600; text-decoration: none;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* NAV */
+  .site-header nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(250,250,247,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 16px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem; color: var(--color-warm); text-decoration: none;
+  }
+  .logo span { color: var(--color-accent); }
+  .nav-links { display: flex; gap: 8px; }
+  .nav-links a {
+    font-size: 0.9rem; font-weight: 600;
+    padding: 8px 18px; border-radius: 8px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .nav-links .btn-seller { background: var(--color-warm); color: white; }
+  .nav-links .btn-seller:hover { background: var(--color-warm-light); }
+  .nav-links .btn-investor { background: var(--color-investor); color: white; }
+  .nav-links .btn-investor:hover { opacity: 0.9; }
+
+  .hamburger {
+    display: none; background: none; border: none;
+    cursor: pointer; padding: 4px; flex-direction: column; gap: 5px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2.5px;
+    background: var(--color-dark); border-radius: 2px; transition: all 0.3s;
+  }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 24px; flex-direction: column; gap: 10px;
+    z-index: 99; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    display: block; text-align: center;
+    padding: 14px; border-radius: 10px;
+    font-weight: 600; font-size: 1rem; text-decoration: none; color: white;
+  }
+  .mobile-menu .btn-seller { background: var(--color-warm); }
+  .mobile-menu .btn-investor { background: var(--color-investor); }
+  .mobile-menu .btn-nav-link { background: none; color: var(--color-dark); border: 1px solid var(--color-border); }
+
+  /* FOOTER */
+  footer {
+    background: var(--color-dark);
+    color: rgba(255,255,255,0.6);
+    padding: 48px 24px 32px; font-size: 0.85rem;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+  }
+  .footer-brand .logo { color: white; margin-bottom: 12px; display: block; }
+  .footer-brand .logo span { color: var(--color-accent); }
+  .footer-brand p { max-width: 300px; line-height: 1.5; }
+  .footer-col h4 { color: white; font-size: 0.9rem; margin-bottom: 12px; font-weight: 600; }
+  .footer-col a {
+    display: block; color: rgba(255,255,255,0.6);
+    text-decoration: none; margin-bottom: 8px; transition: color 0.2s;
+  }
+  .footer-col a:hover { color: white; }
+  .footer-bottom {
+    max-width: 1100px; margin: 32px auto 0;
+    padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center; font-size: 0.75rem;
+  }
+
+  /* FLOATING WHATSAPP */
+  .float-whatsapp {
+    position: fixed; bottom: 24px; right: 24px;
+    width: 60px; height: 60px; background: #25D366;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    z-index: 90; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .float-whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+  .float-whatsapp svg { width: 32px; height: 32px; fill: white; }
+  .float-whatsapp::before {
+    content: 'Escr\00edbenos'; position: absolute; right: 68px; top: 50%;
+    transform: translateY(-50%); background: var(--color-dark); color: white;
+    font-size: 0.8rem; font-weight: 600; padding: 6px 14px; border-radius: 8px;
+    white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .float-whatsapp:hover::before { opacity: 1; }
+  .float-whatsapp::after {
+    content: ''; position: absolute; width: 60px; height: 60px;
+    border-radius: 50%; background: #25D366; z-index: -1;
+    animation: pulse 2s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* PAGE STYLES */
+  .page-hero { padding: 140px 24px 60px; background: var(--color-warm-bg); }
+  .page-hero .container { max-width: 1100px; margin: 0 auto; }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.2; margin-bottom: 16px; color: var(--color-dark); }
+  .page-hero p { font-size: 1.1rem; color: var(--color-muted); max-width: 600px; font-weight: 300; }
+  .page-content { padding: 60px 24px; }
+  .page-content .container { max-width: 800px; margin: 0 auto; }
+  .page-content h2 { font-family: var(--font-display); font-size: 1.6rem; margin: 40px 0 16px; color: var(--color-dark); }
+  .page-content h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 12px; }
+  .page-content p { font-size: 1rem; color: var(--color-muted); line-height: 1.7; margin-bottom: 16px; }
+  .page-content ul, .page-content ol { margin: 12px 0 20px 24px; color: var(--color-muted); line-height: 1.7; }
+  .page-content li { margin-bottom: 8px; }
+  .breadcrumb { font-size: 0.85rem; color: var(--color-muted); margin-bottom: 16px; }
+  .breadcrumb a { color: var(--color-warm); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .page-cta { background: linear-gradient(135deg, var(--color-warm) 0%, #1a3a28 100%); text-align: center; padding: 60px 24px; }
+  .page-cta h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2rem); color: white; margin-bottom: 12px; font-weight: 400; }
+  .page-cta p { color: rgba(255,255,255,0.75); font-size: 1rem; max-width: 500px; margin: 0 auto 24px; }
+
+  /* BLOG SPECIFIC */
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+  .blog-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 28px; transition: all 0.3s; text-decoration: none; color: inherit; display: block; }
+  .blog-card:hover { border-color: var(--color-warm); box-shadow: 0 8px 32px rgba(45,90,61,0.12); transform: translateY(-4px); }
+  .blog-card .blog-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--color-warm); margin-bottom: 12px; }
+  .blog-card h3 { font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 10px; color: var(--color-dark); }
+  .blog-card p { font-size: 0.9rem; color: var(--color-muted); line-height: 1.5; margin-bottom: 12px; }
+  .blog-card .blog-date { font-size: 0.8rem; color: var(--color-muted); }
+  .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; font-size: 0.9rem; color: var(--color-muted); }
+  .article-meta .author-avatar { width: 40px; height: 40px; background: var(--color-warm); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+  .article-body blockquote { border-left: 3px solid var(--color-warm); padding-left: 20px; margin: 24px 0; font-style: italic; color: var(--color-dark); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 10px;
+    font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+    text-decoration: none; cursor: pointer; border: none; transition: all 0.25s;
+  }
+  .btn-primary { background: var(--color-warm); color: white; box-shadow: 0 4px 16px rgba(45,90,61,0.25); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(45,90,61,0.3); }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+    .footer-brand p { margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#contenido-principal" class="skip-link">Saltar al contenido</a>
+
+<header class="site-header">
+  <nav aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Resuelve Propiedades - Inicio">Resuelve<span>Propiedades</span></a>
+      <div class="nav-links">
+        <a href="/quienes-somos/" style="color:var(--color-dark);background:none;">Quiénes Somos</a>
+        <a href="/blog/" style="color:var(--color-dark);background:none;">Blog</a>
+        <a href="/#vendedores" class="btn-seller">Tengo una propiedad</a>
+        <a href="/#inversionistas" class="btn-investor">Soy inversionista</a>
+      </div>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" role="menu">
+      <a href="/quienes-somos/" class="btn-nav-link" role="menuitem">Quiénes Somos</a>
+      <a href="/blog/" class="btn-nav-link" role="menuitem">Blog</a>
+      <a href="/#vendedores" class="btn-seller" role="menuitem">Tengo una propiedad</a>
+      <a href="/#inversionistas" class="btn-investor" role="menuitem">Soy inversionista</a>
+    </div>
+  </nav>
+</header>
+
+<main id="contenido-principal">
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Inicio</a> &rsaquo; Blog</div>
+    <h1>Blog Inmobiliario y Legal</h1>
+    <p>Guías prácticas sobre herencias, remates, títulos de propiedad y más. Información legal clara para propietarios e inversionistas en Chile.</p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container" style="max-width:1100px;">
+    <div class="blog-grid">
+
+      <a href="/blog/heredero-no-quiere-vender/" class="blog-card">
+        <div class="blog-tag">Herencias</div>
+        <h3>¿Qué pasa si un heredero no quiere vender?</h3>
+        <p>Opciones legales cuando un coheredero bloquea la venta de una propiedad en Chile. Desde la negociación hasta la partición forzada.</p>
+        <div class="blog-date">15 de marzo, 2026</div>
+      </a>
+
+      <a href="/blog/como-detener-remate-propiedad-chile/" class="blog-card">
+        <div class="blog-tag">Remates</div>
+        <h3>Cómo detener un remate de propiedad en Chile</h3>
+        <p>Si tu propiedad está en proceso de remate, aún hay opciones. Conoce las alternativas legales para proteger tu patrimonio.</p>
+        <div class="blog-date">10 de marzo, 2026</div>
+      </a>
+
+      <a href="/blog/posesion-efectiva-plazos-costos-requisitos/" class="blog-card">
+        <div class="blog-tag">Trámites</div>
+        <h3>Posesión efectiva en Chile 2026: plazos, costos y requisitos</h3>
+        <p>Todo lo que necesitas saber para tramitar la posesión efectiva. Documentos, plazos, costos y errores frecuentes.</p>
+        <div class="blog-date">5 de marzo, 2026</div>
+      </a>
+
+      <a href="/blog/regularizacion-titulos-dominio-chile/" class="blog-card">
+        <div class="blog-tag">Títulos</div>
+        <h3>Regularización de títulos de dominio en Chile</h3>
+        <p>Guía completa sobre cómo sanear títulos de propiedad irregulares. Proceso, requisitos y alternativas legales vigentes.</p>
+        <div class="blog-date">28 de febrero, 2026</div>
+      </a>
+
+      <a href="/blog/vender-propiedad-herencia-sin-posesion-efectiva/" class="blog-card">
+        <div class="blog-tag">Herencias</div>
+        <h3>¿Se puede vender una propiedad en herencia sin posesión efectiva?</h3>
+        <p>La respuesta corta es que no directamente, pero existen alternativas legales. Conoce las opciones disponibles en Chile.</p>
+        <div class="blog-date">20 de febrero, 2026</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="page-cta">
+  <h2>¿Tienes una propiedad en situación compleja?</h2>
+  <p>Diagnosticamos tu caso gratis y te conectamos con inversionistas que compran en estas condiciones.</p>
+  <div style="display:flex;justify-content:center;">
+    <a href="https://wa.me/56994495238?text=Hola%2C%20necesito%20ayuda%20con%20una%20propiedad" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Consulta gratis por WhatsApp</a>
+  </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Resuelve Propiedades - Inicio">Resuelve<span>Propiedades</span></a>
+      <p>Asesoría legal y oportunidades inmobiliarias en situaciones complejas en todo Chile.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <a href="/#vendedores">Para propietarios</a>
+      <a href="/#inversionistas">Para inversionistas</a>
+      <a href="/#preguntas">Preguntas frecuentes</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="https://wa.me/56994495238" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="mailto:contacto@resuelvepropiedades.cl">Email</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 ResuelvePropiedades. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/56994495238?text=Hola%2C%20necesito%20ayuda%20con%20una%20propiedad" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+</body>
+</html>

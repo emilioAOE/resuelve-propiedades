@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.resuelvepropiedades.cl/sitemap.xml
+Sitemap: https://resuelvepropiedades.cl/sitemap.xml

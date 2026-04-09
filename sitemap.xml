@@ -49,6 +49,24 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://resuelvepropiedades.cl/divorcios-separacion-bienes/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/socios-copropiedad-conflicto/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/expropiaciones/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://resuelvepropiedades.cl/blog/</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -105,6 +123,36 @@
   <url>
     <loc>https://resuelvepropiedades.cl/blog/derechos-propietario-ocupantes-ilegales-chile/</loc>
     <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/mi-ex-no-quiere-vender-la-casa/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/particion-forzada-propiedad-chile/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/puedo-vender-propiedad-con-embargo/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/impuesto-herencia-chile/</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/plazo-reclamar-expropiacion-chile/</loc>
+    <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

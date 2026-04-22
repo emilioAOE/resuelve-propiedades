@@ -1390,9 +1390,45 @@
     };
   }
 
+  function ensureErrorBox(form) {
+    let box = form.querySelector('.form-error');
+    if (!box) {
+      box = document.createElement('div');
+      box.className = 'form-error';
+      box.setAttribute('role', 'alert');
+      box.style.cssText = 'display:none;background:#FEE2E2;border-left:3px solid #DC2626;color:#7F1D1D;padding:12px 16px;border-radius:6px;margin:12px 0;font-size:0.9rem;';
+      const btn = form.querySelector('.btn-submit');
+      if (btn && btn.parentNode) btn.parentNode.insertBefore(box, btn);
+    }
+    return box;
+  }
+
+  function showFormError(form, message) {
+    const box = ensureErrorBox(form);
+    box.textContent = message;
+    box.style.display = 'block';
+    // Scroll error into view so user sees what happened
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function hideFormError(form) {
+    const box = form.querySelector('.form-error');
+    if (box) box.style.display = 'none';
+  }
+
   function handleFormSubmit(form, type, successId) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // Native HTML5 validation — if any required field is invalid, don't submit
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        showFormError(form, 'Por favor completa los campos obligatorios antes de enviar.');
+        return;
+      }
+
+      hideFormError(form);
+
       const btn = form.querySelector('.btn-submit');
       btn.classList.add('loading');
       btn.disabled = true;
@@ -1436,13 +1472,15 @@
         body: JSON.stringify(payload)
       })
       .then(() => {
+        // Only on successful network roundtrip: hide form and show success.
+        // Form data is preserved in the DOM in case we need to re-show it.
         form.style.display = 'none';
         document.getElementById(successId).classList.add('show');
       })
       .catch((err) => {
+        // Network error: keep form visible WITH DATA INTACT, show inline error.
         console.error('Error enviando lead:', err);
-        form.style.display = 'none';
-        document.getElementById(successId).classList.add('show');
+        showFormError(form, 'No pudimos enviar el formulario. Revisa tu conexión e intenta de nuevo, o escríbenos directo por WhatsApp (+56 9 9449 5238).');
       })
       .finally(() => {
         btn.classList.remove('loading');

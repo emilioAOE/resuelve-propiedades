@@ -200,4 +200,42 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- SEO Phase 3: 3 blogs + 3 city+problema pages (Abril 24, 2026) -->
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/quiero-vender-casa-problemas-legales/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/vender-casa-heredada-rapido-chile/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/inversionistas-compran-propiedades-problemas/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/herencias-valparaiso/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/divorcios-santiago/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/remates-valparaiso/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

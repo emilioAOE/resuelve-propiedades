@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://resuelvepropiedades.cl/blog/</loc>
-    <lastmod>2026-03-27</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -305,5 +305,25 @@
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- SEO Phase 5: 3 blogs nuevos (Mayo 14, 2026) -->
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/donacion-propiedad-vida-vs-herencia-chile/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/dl-2695-saneamiento-pequena-propiedad-raiz/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/desalojo-arrendatario-no-paga-chile/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

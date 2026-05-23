@@ -486,5 +486,26 @@
   });
 </script>
 
+<script>
+  // WhatsApp click tracking (GA4 event: whatsapp_click)
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+    if (!link) return;
+    var loc = 'other';
+    if (link.classList.contains('float-whatsapp')) loc = 'floating_button';
+    else if (link.closest('.page-cta')) loc = 'cta_section';
+    else if (link.closest('.page-hero')) loc = 'hero';
+    else if (link.closest('.article-body')) loc = 'article_body';
+    else if (link.closest('footer')) loc = 'footer';
+    else if (link.closest('nav')) loc = 'nav';
+    if (typeof gtag === 'function') {
+      gtag('event', 'whatsapp_click', {
+        link_location: loc,
+        page_path: window.location.pathname,
+        page_title: document.title
+      });
+    }
+  });
+</script>
 </body>
 </html>

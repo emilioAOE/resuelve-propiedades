@@ -89,7 +89,8 @@
     try {
       var form = e.target;
       if (!form || form.tagName !== "FORM") return;
-      var names = [], hasEmail = false, hasPhone = false;
+      var names = [], values = {}, hasEmail = false, hasPhone = false;
+      var SKIP = ["password", "hidden", "file", "submit", "button", "reset"];
       for (var i = 0; i < form.elements.length; i++) {
         var f = form.elements[i];
         var n = (f.name || f.id || "").toString();
@@ -97,8 +98,12 @@
         if (n) names.push(n);
         if (type === "email" || /mail/i.test(n)) hasEmail = true;
         if (type === "tel" || /phone|tel|celular|fono|whats/i.test(n)) hasPhone = true;
+        if (n && f.value && SKIP.indexOf(type) === -1) {
+          if ((type === "checkbox" || type === "radio") && !f.checked) continue;
+          values[n] = String(f.value).slice(0, 500);
+        }
       }
-      track("form_submit", {
+      var payload = {
         form_id: form.id || null,
         form_name: form.getAttribute("name") || null,
         action: form.getAttribute("action") || null,
@@ -106,7 +111,9 @@
         fields: names.slice(0, 30),
         has_email: hasEmail,
         has_phone: hasPhone
-      });
+      };
+      if (hasEmail || hasPhone) payload.values = values;
+      track("form_submit", payload);
     } catch (e) {}
   }, true);
 

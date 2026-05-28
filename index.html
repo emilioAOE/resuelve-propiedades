@@ -653,6 +653,89 @@
     font-weight: 500;
   }
 
+  /* ─── HERO TERTIARY LINK ─── */
+  .hero-tertiary {
+    margin-top: 20px;
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+  .hero-tertiary a {
+    color: var(--color-accent); font-weight: 600;
+    font-size: 0.95rem; text-decoration: none;
+    border-bottom: 1.5px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .hero-tertiary a:hover { border-color: var(--color-accent); }
+
+  /* ─── WIZARD (Seller estudio de título) ─── */
+  .wizard-progress {
+    height: 6px; background: var(--color-border);
+    border-radius: 6px; overflow: hidden; margin-bottom: 10px;
+  }
+  .wizard-progress-bar {
+    height: 100%; width: 25%;
+    background: var(--color-warm);
+    border-radius: 6px; transition: width 0.35s ease;
+  }
+  .wizard-step-label {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--color-warm);
+    margin-bottom: 18px;
+  }
+  .wizard.js-wizard .wizard-step { display: none; }
+  .wizard.js-wizard .wizard-step.active { display: block; animation: fadeUp 0.3s ease; }
+  .wizard:not(.js-wizard) .wizard-progress,
+  .wizard:not(.js-wizard) .wizard-step-label,
+  .wizard:not(.js-wizard) .btn-step-next,
+  .wizard:not(.js-wizard) .btn-step-back { display: none; }
+  .wizard-nav { display: flex; gap: 12px; align-items: center; margin-top: 6px; }
+  .btn-step {
+    padding: 13px 20px; border-radius: 10px;
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; border: none; transition: all 0.2s;
+  }
+  .btn-step-next { background: var(--color-warm); color: white; flex: 1; }
+  .btn-step-next:hover { background: var(--color-warm-light); }
+  .btn-step-back {
+    background: transparent; color: var(--color-muted);
+    border: 1.5px solid var(--color-border);
+  }
+  .btn-step-back:hover { border-color: var(--color-warm); color: var(--color-warm); }
+  .wizard .btn-submit { flex: 1; }
+  .wizard-help {
+    font-size: 0.9rem; color: var(--color-muted);
+    background: var(--color-warm-bg); border-radius: 8px;
+    padding: 12px 14px; margin-bottom: 16px; line-height: 1.5;
+  }
+  .wizard-help strong { color: var(--color-warm); }
+  .doc-checklist { display: grid; gap: 10px; margin-bottom: 20px; }
+  .doc-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px; border: 1.5px solid var(--color-border);
+    border-radius: 8px; cursor: pointer; font-size: 0.92rem;
+    transition: all 0.15s; background: var(--color-bg);
+  }
+  .doc-item:hover { border-color: var(--color-warm); }
+  .doc-item input { accent-color: var(--color-warm); width: 18px; height: 18px; flex-shrink: 0; }
+  .doc-item:has(input:checked) { border-color: var(--color-warm); background: var(--color-warm-bg); }
+
+  /* ─── LEGAL HELP SECTION ─── */
+  .legal-section { background: var(--color-accent-light); }
+  .legal-section .section-label { color: var(--color-accent); }
+  .path-toggle {
+    display: inline-flex; gap: 4px; margin: 24px auto 0;
+    background: var(--color-white); border: 1px solid var(--color-border);
+    border-radius: 12px; padding: 4px;
+  }
+  .path-btn {
+    padding: 10px 18px; border: none; background: transparent;
+    border-radius: 9px; cursor: pointer;
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+    color: var(--color-muted); transition: all 0.2s;
+  }
+  .path-btn.active { background: var(--color-accent); color: white; }
+  .btn-submit-legal { background: var(--color-accent); color: white; }
+  .btn-submit-legal:hover:not(:disabled) { background: #a8631f; }
+
   /* ─── TRUST ─── */
   .trust {
     background: var(--color-white);
@@ -893,7 +976,10 @@
 
     .dual-section { grid-template-columns: 1fr; }
     .seller-section, .investor-section { padding: 60px 24px; }
+    .legal-section { padding: 60px 24px; }
     .form-row { grid-template-columns: 1fr; }
+    .path-toggle { display: flex; width: 100%; }
+    .path-btn { flex: 1; padding: 12px 8px; }
 
     .social-proof-bar .container {
       gap: 20px !important;
@@ -930,6 +1016,7 @@
       <div class="nav-links">
         <a href="/quienes-somos/" style="color:var(--color-dark);background:none;">Quiénes Somos</a>
         <a href="/blog/" style="color:var(--color-dark);background:none;">Blog</a>
+        <a href="#ayuda-legal" style="color:var(--color-dark);background:none;">Ayuda legal</a>
         <a href="#vendedores" class="btn-seller">Tengo una propiedad</a>
         <a href="#inversionistas" class="btn-investor">Soy inversionista</a>
       </div>
@@ -940,6 +1027,7 @@
     <div class="mobile-menu" role="menu">
       <a href="/quienes-somos/" style="background:none;color:var(--color-dark);" role="menuitem">Quiénes Somos</a>
       <a href="/blog/" style="background:none;color:var(--color-dark);" role="menuitem">Blog</a>
+      <a href="#ayuda-legal" style="background:none;color:var(--color-dark);" role="menuitem">Ayuda legal</a>
       <a href="#vendedores" class="btn-seller" role="menuitem">Tengo una propiedad</a>
       <a href="#inversionistas" class="btn-investor" role="menuitem">Soy inversionista</a>
     </div>
@@ -963,6 +1051,7 @@
       Quiero invertir
     </a>
   </div>
+  <p class="hero-tertiary"><a href="#ayuda-legal">¿Solo necesitas orientación legal? Habla con un abogado &rarr;</a></p>
 </section>
 
 <!-- SOCIAL PROOF BAR -->
@@ -1105,45 +1194,107 @@
   <!-- SELLER -->
   <section class="seller-section" id="vendedores">
     <span class="section-label">Para propietarios</span>
-    <h2 class="section-title">Cuéntanos sobre tu propiedad</h2>
-    <p class="section-subtitle">Sin compromiso. Tu información es 100% confidencial.</p>
+    <h2 class="section-title">Estudio de título gratis de tu propiedad</h2>
+    <p class="section-subtitle">Cuéntanos sobre tu propiedad y, con ayuda de IA + un abogado, te entregamos un diagnóstico claro de su situación legal. Sin compromiso y 100% confidencial.</p>
     <div class="form-card">
-      <form id="sellerForm">
-        <div class="form-group">
-          <label for="seller-nombre">Nombre</label>
-          <input type="text" id="seller-nombre" name="nombre" placeholder="Tu nombre" required>
+      <form id="sellerForm" class="wizard" novalidate>
+        <div class="wizard-progress" aria-hidden="true"><div class="wizard-progress-bar" id="sellerProgress"></div></div>
+        <p class="wizard-step-label" id="sellerStepLabel">Paso 1 de 4 · Tu propiedad</p>
+
+        <!-- Paso 1: La propiedad -->
+        <div class="wizard-step" data-step="1">
+          <div class="form-group">
+            <label for="seller-tipo">Tipo de propiedad</label>
+            <select id="seller-tipo" name="tipo" required>
+              <option value="">Selecciona</option>
+              <option value="casa">Casa</option>
+              <option value="departamento">Departamento</option>
+              <option value="terreno">Terreno o sitio</option>
+              <option value="parcela">Parcela o propiedad rural</option>
+              <option value="comercial">Local o propiedad comercial</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="seller-comuna">Comuna o ciudad</label>
+            <input type="text" id="seller-comuna" name="comuna" placeholder="Ej: Ñuñoa, Concepción, La Serena..." required>
+          </div>
+          <div class="form-group">
+            <label for="seller-rol">Dirección o rol de avalúo (SII) <span style="color:var(--color-muted);font-weight:400;font-size:0.85rem;">(opcional)</span></label>
+            <input type="text" id="seller-rol" name="rol" placeholder="Ej: Av. Los Olmos 123 o rol 1234-56">
+          </div>
+          <div class="wizard-nav">
+            <button type="button" class="btn-step btn-step-next" data-next>Continuar &rarr;</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="seller-telefono">WhatsApp o teléfono</label>
-          <input type="tel" id="seller-telefono" name="telefono" placeholder="+56 9 1234 5678" required>
+
+        <!-- Paso 2: La situación -->
+        <div class="wizard-step" data-step="2">
+          <div class="form-group">
+            <label for="seller-situacion">¿Cuál es tu situación?</label>
+            <select id="seller-situacion" name="situacion" required>
+              <option value="">Selecciona una opción</option>
+              <option value="herencia">Herencia complicada</option>
+              <option value="remate">Remate o embargo</option>
+              <option value="socios">Conflicto con socios/copropietarios</option>
+              <option value="titulo">Problemas de título o inscripción</option>
+              <option value="divorcio">Divorcio o separación de bienes</option>
+              <option value="abandono">Propiedad abandonada</option>
+              <option value="expropiacion">Expropiación</option>
+              <option value="vender">Solo quiero venderla</option>
+              <option value="otro">Otra situación</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="seller-detalle">Cuéntanos brevemente <span style="color:var(--color-muted);font-weight:400;font-size:0.85rem;">(opcional)</span></label>
+            <textarea id="seller-detalle" name="detalle" placeholder="Ej: Heredamos una casa con 4 hermanos y no nos ponemos de acuerdo..."></textarea>
+          </div>
+          <div class="wizard-nav">
+            <button type="button" class="btn-step btn-step-back" data-back>&larr; Atrás</button>
+            <button type="button" class="btn-step btn-step-next" data-next>Continuar &rarr;</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="seller-email">Email <span style="color:var(--color-muted);font-weight:400;font-size:0.85rem;">(opcional)</span></label>
-          <input type="email" id="seller-email" name="email" placeholder="correo@ejemplo.cl">
+
+        <!-- Paso 3: Documentos para el estudio de título -->
+        <div class="wizard-step" data-step="3">
+          <p class="wizard-help">Para tu <strong>estudio de título</strong>, marca los documentos que tienes a mano. Los analizamos con ayuda de IA + un abogado para darte un diagnóstico claro. <em>No necesitas tenerlos todos.</em></p>
+          <div class="doc-checklist">
+            <label class="doc-item"><input type="checkbox" name="documentos" value="Escritura de compraventa"><span>Escritura de compraventa</span></label>
+            <label class="doc-item"><input type="checkbox" name="documentos" value="Certificado de dominio vigente"><span>Certificado de dominio vigente</span></label>
+            <label class="doc-item"><input type="checkbox" name="documentos" value="Certificado de hipotecas y gravámenes"><span>Certificado de hipotecas y gravámenes</span></label>
+            <label class="doc-item"><input type="checkbox" name="documentos" value="Posesión efectiva o inscripción de herencia"><span>Posesión efectiva (si es herencia)</span></label>
+            <label class="doc-item"><input type="checkbox" name="documentos" value="Certificado de avalúo fiscal (SII)"><span>Certificado de avalúo fiscal (SII)</span></label>
+            <label class="doc-item"><input type="checkbox" name="documentos" value="No estoy seguro / no los tengo"><span>No estoy seguro / no los tengo</span></label>
+          </div>
+          <div class="wizard-nav">
+            <button type="button" class="btn-step btn-step-back" data-back>&larr; Atrás</button>
+            <button type="button" class="btn-step btn-step-next" data-next>Continuar &rarr;</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="seller-situacion">Cuál es tu situación?</label>
-          <select id="seller-situacion" name="situacion" required>
-            <option value="">Selecciona una opción</option>
-            <option value="herencia">Herencia complicada</option>
-            <option value="remate">Remate o embargo</option>
-            <option value="socios">Conflicto con socios/copropietarios</option>
-            <option value="titulo">Problemas de título o inscripción</option>
-            <option value="divorcio">Divorcio o separación de bienes</option>
-            <option value="abandono">Propiedad abandonada</option>
-            <option value="expropiacion">Expropiación</option>
-            <option value="otro">Otra situación</option>
-          </select>
+
+        <!-- Paso 4: Contacto -->
+        <div class="wizard-step" data-step="4">
+          <div class="form-group">
+            <label for="seller-nombre">Nombre</label>
+            <input type="text" id="seller-nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="seller-telefono">WhatsApp o teléfono</label>
+            <input type="tel" id="seller-telefono" name="telefono" placeholder="+56 9 1234 5678" required>
+          </div>
+          <div class="form-group">
+            <label for="seller-email">Email <span style="color:var(--color-muted);font-weight:400;font-size:0.85rem;">(opcional)</span></label>
+            <input type="email" id="seller-email" name="email" placeholder="correo@ejemplo.cl">
+          </div>
+          <div class="wizard-nav">
+            <button type="button" class="btn-step btn-step-back" data-back>&larr; Atrás</button>
+            <button type="submit" class="btn-submit btn-submit-seller">
+              <span class="spinner"></span>
+              <span class="btn-text">Iniciar mi estudio de título gratis</span>
+            </button>
+          </div>
+          <p class="form-micro-copy">Gratis y sin compromiso. Respuesta en menos de 24 horas.</p>
         </div>
-        <div class="form-group">
-          <label for="seller-detalle">Cuéntanos brevemente (opcional)</label>
-          <textarea id="seller-detalle" name="detalle" placeholder="Ej: Heredamos una casa con 4 hermanos y no nos ponemos de acuerdo..."></textarea>
-        </div>
-        <button type="submit" class="btn-submit btn-submit-seller">
-          <span class="spinner"></span>
-          <span class="btn-text">Solicitar diagnóstico gratuito</span>
-        </button>
-        <p class="form-micro-copy">Respuesta en menos de 24 horas. Sin compromiso.</p>
       </form>
       <div class="form-divider">o si prefieres</div>
       <a href="https://wa.me/56994495238?text=Hola%2C%20tengo%20una%20propiedad%20en%20situaci%C3%B3n%20dif%C3%ADcil%20y%20necesito%20orientaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="Contactar por WhatsApp como propietario">
@@ -1151,8 +1302,12 @@
         Escribir por WhatsApp
       </a>
       <div class="success-msg" id="sellerSuccess">
-        <h3>&#10003; Recibido!</h3>
-        <p>Un abogado revisará tu caso y te contactará dentro de 24 horas.</p>
+        <h3>&#10003; ¡Recibido!</h3>
+        <p>Estamos preparando tu estudio de título. <strong>Para avanzar más rápido, envíanos las escrituras y documentos por WhatsApp</strong> — así un abogado los revisa hoy mismo.</p>
+        <a href="https://wa.me/56994495238?text=Hola%2C%20quiero%20enviar%20los%20documentos%20de%20mi%20propiedad%20para%20el%20estudio%20de%20t%C3%ADtulo" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" style="margin-top:16px;" aria-label="Enviar documentos por WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar documentos por WhatsApp
+        </a>
       </div>
     </div>
   </section>
@@ -1163,21 +1318,23 @@
     <h2 class="section-title">Oportunidades que otros no ven</h2>
     <p class="section-subtitle">Propiedades bajo valor de mercado con respaldo legal completo.</p>
     <div class="form-card">
-      <form id="investorForm">
-        <div class="form-group">
-          <label for="inv-nombre">Nombre</label>
-          <input type="text" id="inv-nombre" name="nombre" placeholder="Tu nombre" required>
+      <form id="investorForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inv-nombre">Nombre</label>
+            <input type="text" id="inv-nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="inv-telefono">WhatsApp o teléfono</label>
+            <input type="tel" id="inv-telefono" name="telefono" placeholder="+56 9 1234 5678" required>
+          </div>
         </div>
         <div class="form-group">
           <label for="inv-email">Email</label>
           <input type="email" id="inv-email" name="email" placeholder="correo@ejemplo.cl" required>
         </div>
         <div class="form-group">
-          <label for="inv-telefono">WhatsApp o teléfono</label>
-          <input type="tel" id="inv-telefono" name="telefono" placeholder="+56 9 1234 5678" required>
-        </div>
-        <div class="form-group">
-          <label for="inv-interes">Qué tipo de propiedades te interesan?</label>
+          <label for="inv-interes">¿Qué tipo de propiedades te interesan?</label>
           <select id="inv-interes" name="interes" required>
             <option value="">Selecciona</option>
             <option value="residencial">Residencial (casas/deptos)</option>
@@ -1185,6 +1342,36 @@
             <option value="comercial">Comercial</option>
             <option value="todo">Todo tipo</option>
           </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inv-rango">Capacidad de inversión</label>
+            <select id="inv-rango" name="rango" required>
+              <option value="">Selecciona</option>
+              <option value="hasta-50M">Hasta $50M</option>
+              <option value="50-100M">$50M – $100M</option>
+              <option value="100-200M">$100M – $200M</option>
+              <option value="200-500M">$200M – $500M</option>
+              <option value="mas-500M">Más de $500M</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inv-pago">Forma de pago</label>
+            <select id="inv-pago" name="pago">
+              <option value="">Selecciona</option>
+              <option value="contado">Contado</option>
+              <option value="credito">Con crédito hipotecario</option>
+              <option value="mixto">Mixto</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inv-zona">Zonas o regiones de interés <span style="color:var(--color-muted);font-weight:400;font-size:0.85rem;">(opcional)</span></label>
+          <input type="text" id="inv-zona" name="zona" placeholder="Ej: RM, Valparaíso, Biobío...">
+        </div>
+        <div class="form-group">
+          <label for="inv-comentario">Comentario <span style="color:var(--color-muted);font-weight:400;font-size:0.85rem;">(opcional)</span></label>
+          <textarea id="inv-comentario" name="comentario" placeholder="Cuéntanos tu perfil de inversión o qué oportunidades buscas..."></textarea>
         </div>
         <button type="submit" class="btn-submit btn-submit-investor">
           <span class="spinner"></span>
@@ -1198,12 +1385,102 @@
         Escribir por WhatsApp
       </a>
       <div class="success-msg" id="investorSuccess">
-        <h3>&#10003; Bienvenido a la red!</h3>
+        <h3>&#10003; ¡Bienvenido a la red!</h3>
         <p>Te contactaremos cuando tengamos oportunidades que calcen con tu perfil.</p>
       </div>
     </div>
   </section>
 </div>
+
+<!-- LEGAL HELP -->
+<section class="legal-section" id="ayuda-legal">
+  <div class="container" style="max-width:760px;text-align:center;">
+    <span class="section-label">¿Solo necesitas orientación legal?</span>
+    <h2 class="section-title">Habla con un abogado sobre tu propiedad</h2>
+    <p class="section-subtitle" style="margin:0 auto;">No necesitas vender para recibir ayuda. Cuéntanos tu caso en detalle o, si prefieres, déjanos solo tus datos y te contactamos.</p>
+
+    <div class="path-toggle" role="tablist" aria-label="Elige cómo continuar">
+      <button type="button" class="path-btn active" data-path="detallado" role="tab" aria-selected="true">Contar mi caso en detalle</button>
+      <button type="button" class="path-btn" data-path="rapido" role="tab" aria-selected="false">Solo que me contacten</button>
+    </div>
+
+    <div class="form-card" style="text-align:left;max-width:560px;margin:24px auto 0;">
+      <!-- Camino A: caso en detalle -->
+      <form id="legalDetailForm" class="legal-path-form" data-path="detallado" novalidate>
+        <input type="hidden" name="modo" value="detallado">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="legal-nombre">Nombre</label>
+            <input type="text" id="legal-nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="legal-telefono">WhatsApp o teléfono</label>
+            <input type="tel" id="legal-telefono" name="telefono" placeholder="+56 9 1234 5678" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="legal-email">Email <span style="color:var(--color-muted);font-weight:400;font-size:0.85rem;">(opcional)</span></label>
+          <input type="email" id="legal-email" name="email" placeholder="correo@ejemplo.cl">
+        </div>
+        <div class="form-group">
+          <label for="legal-situacion">¿Qué tipo de ayuda necesitas?</label>
+          <select id="legal-situacion" name="situacion" required>
+            <option value="">Selecciona una opción</option>
+            <option value="herencia">Herencia o posesión efectiva</option>
+            <option value="remate">Remate o embargo</option>
+            <option value="socios">Conflicto con socios/copropietarios</option>
+            <option value="titulo">Problemas de título o inscripción</option>
+            <option value="divorcio">Divorcio o separación de bienes</option>
+            <option value="arriendo">Arriendo, comodato o desalojo</option>
+            <option value="expropiacion">Expropiación</option>
+            <option value="otro">Otra consulta legal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="legal-detalle">Cuéntanos tu caso</label>
+          <textarea id="legal-detalle" name="detalle" placeholder="Describe brevemente tu situación para que un abogado pueda orientarte..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit btn-submit-legal">
+          <span class="spinner"></span>
+          <span class="btn-text">Enviar mi caso</span>
+        </button>
+        <p class="form-micro-copy">¿Tienes escrituras u otros documentos? Te diremos cómo enviarlos de forma segura. 100% confidencial.</p>
+      </form>
+
+      <!-- Camino B: solo contacto -->
+      <form id="legalQuickForm" class="legal-path-form" data-path="rapido" novalidate hidden>
+        <input type="hidden" name="modo" value="rapido">
+        <div class="form-group">
+          <label for="legalq-nombre">Nombre</label>
+          <input type="text" id="legalq-nombre" name="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="legalq-telefono">WhatsApp o teléfono</label>
+          <input type="tel" id="legalq-telefono" name="telefono" placeholder="+56 9 1234 5678" required>
+        </div>
+        <div class="form-group">
+          <label for="legalq-email">Email <span style="color:var(--color-muted);font-weight:400;font-size:0.85rem;">(opcional)</span></label>
+          <input type="email" id="legalq-email" name="email" placeholder="correo@ejemplo.cl">
+        </div>
+        <button type="submit" class="btn-submit btn-submit-legal">
+          <span class="spinner"></span>
+          <span class="btn-text">Quiero que me contacten</span>
+        </button>
+        <p class="form-micro-copy">Te llamamos o escribimos dentro de 24 horas. Sin compromiso.</p>
+      </form>
+
+      <div class="form-divider">o si prefieres</div>
+      <a href="https://wa.me/56994495238?text=Hola%2C%20necesito%20orientaci%C3%B3n%20legal%20sobre%20una%20propiedad" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="Contactar por WhatsApp para ayuda legal">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <div class="success-msg" id="legalSuccess">
+        <h3>&#10003; ¡Recibido!</h3>
+        <p>Un abogado revisará tu consulta y te contactará dentro de 24 horas.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- TRUST -->
 <section class="trust">
@@ -1426,11 +1703,34 @@
     if (box) box.style.display = 'none';
   }
 
-  function handleFormSubmit(form, type, successId) {
+  // Build a payload from any form: tipo_lead + metadata + section + all named fields.
+  // Multi-value fields (e.g. document checkboxes) are joined into a single string.
+  function buildPayload(form, tipoLead, seccion) {
+    const fd = new FormData(form);
+    const raw = Object.fromEntries(fd);
+    const docs = fd.getAll('documentos');
+    if (docs.length) raw.documentos = docs.join(', ');
+    return { tipo_lead: tipoLead, ...getMetadata(), seccion: seccion, ...raw };
+  }
+
+  // When a lead succeeds, hide the relevant form(s). Legal section has two forms
+  // sharing one success message, so hide both forms and the path toggle.
+  function hideFormsForSuccess(form) {
+    if (form.classList.contains('legal-path-form')) {
+      document.querySelectorAll('.legal-path-form').forEach(f => { f.style.display = 'none'; });
+      const toggle = document.querySelector('.path-toggle');
+      if (toggle) toggle.style.display = 'none';
+    } else {
+      form.style.display = 'none';
+    }
+  }
+
+  function handleFormSubmit(form, tipoLead, seccion, successId) {
+    if (!form) return;
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Native HTML5 validation — if any required field is invalid, don't submit
+      // Validation — if any required (visible) field is invalid, don't submit
       if (!form.checkValidity()) {
         form.reportValidity();
         showFormError(form, 'Por favor completa los campos obligatorios antes de enviar.');
@@ -1443,37 +1743,7 @@
       btn.classList.add('loading');
       btn.disabled = true;
 
-      const raw = Object.fromEntries(new FormData(form));
-      const meta = getMetadata();
-
-      let payload;
-      if (type === 'vendedor') {
-        payload = {
-          tipo_lead: 'vendedor',
-          ...meta,
-          nombre: raw.nombre || '',
-          telefono: raw.telefono || '',
-          email: raw.email || '',
-          situacion: raw.situacion || '',
-          detalle: raw.detalle || '',
-          comuna: raw.comuna || '',
-          tipo: raw.tipo || '',
-          seccion: 'vendedores'
-        };
-      } else {
-        payload = {
-          tipo_lead: 'inversionista',
-          ...meta,
-          nombre: raw.nombre || '',
-          telefono: raw.telefono || '',
-          email: raw.email || '',
-          interes: raw.interes || '',
-          rango: raw.rango || '',
-          zona: raw.zona || '',
-          comentario: raw.comentario || '',
-          seccion: 'inversionistas'
-        };
-      }
+      const payload = buildPayload(form, tipoLead, seccion);
 
       fetch(WEBHOOK_URL, {
         method: 'POST',
@@ -1483,9 +1753,11 @@
       })
       .then(() => {
         // Only on successful network roundtrip: hide form and show success.
-        // Form data is preserved in the DOM in case we need to re-show it.
-        form.style.display = 'none';
+        hideFormsForSuccess(form);
         document.getElementById(successId).classList.add('show');
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { tipo_lead: tipoLead, seccion: seccion });
+        }
       })
       .catch((err) => {
         // Network error: keep form visible WITH DATA INTACT, show inline error.
@@ -1499,8 +1771,61 @@
     });
   }
 
-  handleFormSubmit(document.getElementById('sellerForm'), 'vendedor', 'sellerSuccess');
-  handleFormSubmit(document.getElementById('investorForm'), 'inversionista', 'investorSuccess');
+  handleFormSubmit(document.getElementById('sellerForm'), 'vendedor', 'vendedores', 'sellerSuccess');
+  handleFormSubmit(document.getElementById('investorForm'), 'inversionista', 'inversionistas', 'investorSuccess');
+  handleFormSubmit(document.getElementById('legalDetailForm'), 'ayuda_legal', 'ayuda_legal', 'legalSuccess');
+  handleFormSubmit(document.getElementById('legalQuickForm'), 'ayuda_legal', 'ayuda_legal', 'legalSuccess');
+
+  // ── Seller wizard (multi-step) — progressive enhancement ──
+  (function initWizard() {
+    const wiz = document.getElementById('sellerForm');
+    if (!wiz || !wiz.classList.contains('wizard')) return;
+    const steps = Array.from(wiz.querySelectorAll('.wizard-step'));
+    if (!steps.length) return;
+    const progress = document.getElementById('sellerProgress');
+    const label = document.getElementById('sellerStepLabel');
+    const names = ['Tu propiedad', 'Tu situación', 'Documentos', 'Tus datos'];
+    let current = 0;
+    wiz.classList.add('js-wizard');
+
+    function show(i) {
+      current = i;
+      steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      if (progress) progress.style.width = ((i + 1) / steps.length * 100) + '%';
+      if (label) label.textContent = 'Paso ' + (i + 1) + ' de ' + steps.length + ' · ' + (names[i] || '');
+    }
+    function stepValid(i) {
+      const fields = steps[i].querySelectorAll('input, select, textarea');
+      for (const f of fields) {
+        if (!f.checkValidity()) { f.reportValidity(); return false; }
+      }
+      return true;
+    }
+    wiz.querySelectorAll('[data-next]').forEach(b => b.addEventListener('click', () => {
+      if (stepValid(current) && current < steps.length - 1) show(current + 1);
+    }));
+    wiz.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => {
+      if (current > 0) show(current - 1);
+    }));
+    show(0);
+  })();
+
+  // ── Legal help path toggle ──
+  (function initLegalToggle() {
+    const toggle = document.querySelector('.path-toggle');
+    if (!toggle) return;
+    const btns = toggle.querySelectorAll('.path-btn');
+    const forms = document.querySelectorAll('.legal-path-form');
+    btns.forEach(btn => btn.addEventListener('click', () => {
+      const path = btn.dataset.path;
+      btns.forEach(b => {
+        const on = b === btn;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      forms.forEach(f => { f.hidden = (f.dataset.path !== path); });
+    }));
+  })();
 
   // ── Smooth scroll for nav links ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {

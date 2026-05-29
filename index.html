@@ -787,6 +787,82 @@
   .choice-item input { accent-color: var(--color-warm); width: 18px; height: 18px; flex-shrink: 0; }
   .choice-item:has(input:checked) { border-color: var(--color-warm); background: var(--color-warm-bg); }
 
+  /* ─── ESTUDIO IA: subida de documentos ─── */
+  .upload-zone {
+    border: 2px dashed var(--color-border);
+    border-radius: 12px;
+    padding: 26px 18px; text-align: center; cursor: pointer;
+    transition: all 0.18s; background: var(--color-bg);
+  }
+  .upload-zone:hover, .upload-zone:focus-visible, .upload-zone.dragover {
+    border-color: var(--color-warm); background: var(--color-warm-bg); outline: none;
+  }
+  .upload-icon { font-size: 2rem; line-height: 1; margin-bottom: 6px; }
+  .upload-title { font-size: 0.95rem; color: var(--color-dark); margin: 0; }
+  .upload-link { color: var(--color-warm); font-weight: 700; text-decoration: underline; }
+  .upload-hint { font-size: 0.8rem; color: var(--color-muted); margin: 6px 0 0; }
+  .upload-suggest { font-size: 0.8rem; color: var(--color-muted); margin: 12px 0 0; line-height: 1.5; }
+  .upload-list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; }
+  .upload-file {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border: 1px solid var(--color-border);
+    border-radius: 8px; background: var(--color-white); font-size: 0.88rem;
+  }
+  .upload-file .uf-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--color-dark); }
+  .upload-file .uf-size { color: var(--color-muted); font-size: 0.78rem; flex-shrink: 0; }
+  .upload-file .uf-remove {
+    background: none; border: none; cursor: pointer; color: var(--color-muted);
+    font-size: 1.2rem; line-height: 1; padding: 0 2px; flex-shrink: 0;
+  }
+  .upload-file .uf-remove:hover { color: #DC2626; }
+  .upload-file.uf-error { border-color: #FCA5A5; background: #FEF2F2; }
+  .upload-file .uf-err { color: #B91C1C; font-size: 0.78rem; flex-shrink: 0; }
+
+  /* Loading */
+  .estudio-loading { text-align: center; padding: 30px 10px; }
+  .estudio-loading h3 { color: var(--color-dark); margin: 16px 0 6px; }
+  .estudio-loading p { color: var(--color-muted); font-size: 0.92rem; margin: 0; }
+  .estudio-spinner {
+    width: 44px; height: 44px; margin: 0 auto;
+    border: 4px solid var(--color-border); border-top-color: var(--color-warm);
+    border-radius: 50%; animation: estspin 0.9s linear infinite;
+  }
+  @keyframes estspin { to { transform: rotate(360deg); } }
+
+  /* Resultado del estudio */
+  .estudio-result { text-align: left; color: var(--color-dark); }
+  .er-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .er-head h3 { margin: 0; font-size: 1.25rem; }
+  .risk-badge { display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; }
+  .risk-sin_alertas { background: #DCFCE7; color: #166534; }
+  .risk-atencion { background: #FEF9C3; color: #854D0E; }
+  .risk-riesgo_alto { background: #FEE2E2; color: #991B1B; }
+  .risk-indeterminado { background: #E5E7EB; color: #374151; }
+  .er-confianza { font-size: 0.78rem; color: var(--color-muted); width: 100%; }
+  .er-resumen { font-size: 1rem; line-height: 1.6; margin: 10px 0 0; }
+  .er-block { margin-top: 22px; }
+  .er-block h4 { font-size: 0.95rem; margin: 0 0 10px; color: var(--color-warm); display: flex; align-items: center; gap: 6px; }
+  .er-data { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; font-size: 0.9rem; }
+  .er-data span { color: var(--color-muted); display: block; font-size: 0.74rem; text-transform: uppercase; letter-spacing: .3px; }
+  .er-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .er-item { padding: 12px 14px; border-radius: 8px; border: 1px solid var(--color-border); background: var(--color-bg); font-size: 0.9rem; line-height: 1.5; }
+  .er-item strong { display: block; margin-bottom: 2px; }
+  .er-item.sev-riesgo { border-left: 4px solid #DC2626; background: #FEF2F2; }
+  .er-item.sev-atencion { border-left: 4px solid #D97706; background: #FFFBEB; }
+  .er-item.sev-info { border-left: 4px solid var(--color-warm); }
+  .er-detected { border-left: 4px solid #16A34A; }
+  .er-missing { border-left: 4px solid #D97706; background: #FFFBEB; }
+  .er-missing em { color: var(--color-muted); font-style: normal; font-size: 0.82rem; display: block; margin-top: 4px; }
+  .er-recs { padding-left: 18px; margin: 0; font-size: 0.9rem; line-height: 1.6; }
+  .er-recs li { margin-bottom: 6px; }
+  .er-disclaimer {
+    margin-top: 22px; padding: 14px 16px; border-radius: 8px;
+    background: #FFF7ED; border: 1px solid #FED7AA; color: #7C2D12;
+    font-size: 0.82rem; line-height: 1.55;
+  }
+  .er-next { background: var(--color-warm-bg); border-radius: 10px; padding: 16px; font-size: 0.95rem; line-height: 1.5; margin-top: 20px; text-align: center; }
+  .er-next strong { color: var(--color-warm); }
+
   /* ─── TRUST ─── */
   .trust {
     background: var(--color-white);
@@ -1133,12 +1209,12 @@
 
 <!-- ESTUDIO DE TÍTULO (experiencia gratuita) -->
 <section class="estudio-section" id="estudio-titulo">
-  <div class="container" style="max-width:680px;">
-    <span class="estudio-badge">&#10024; Gratis &middot; Exclusivo</span>
-    <h2 class="section-title">Estudio de título gratis de tu propiedad</h2>
-    <p class="estudio-intro">Con ayuda de IA + un abogado revisamos la situación legal de tu propiedad y te entregamos un diagnóstico claro. Cuéntanos por qué lo quieres y lo preparamos para ti.</p>
+  <div class="container" style="max-width:720px;">
+    <span class="estudio-badge">&#10024; Gratis &middot; Hecho con IA</span>
+    <h2 class="section-title">Estudio de título de tu propiedad con IA</h2>
+    <p class="estudio-intro">Sube tus documentos (escrituras, certificados) y nuestra IA te entrega al instante un diagnóstico preliminar: qué dice tu título, qué alertas hay y qué documentos te faltan. Gratis y confidencial.</p>
     <div class="form-card estudio-card">
-      <form id="estudioForm" class="wizard" novalidate>
+      <form id="estudioForm" class="wizard" novalidate enctype="multipart/form-data">
         <div class="wizard-progress" aria-hidden="true"><div class="wizard-progress-bar"></div></div>
         <p class="wizard-step-label"></p>
 
@@ -1185,20 +1261,20 @@
           </div>
         </div>
 
-        <!-- Paso 3: Documentos -->
-        <div class="wizard-step" data-step="3" data-step-name="Documentos">
-          <p class="wizard-help">Marca los documentos que tienes a mano. <em>No necesitas tenerlos todos</em> — nos sirve para enfocar tu estudio.</p>
-          <div class="doc-checklist">
-            <label class="doc-item"><input type="checkbox" name="documentos" value="Escritura de compraventa"><span>Escritura de compraventa</span></label>
-            <label class="doc-item"><input type="checkbox" name="documentos" value="Certificado de dominio vigente"><span>Certificado de dominio vigente</span></label>
-            <label class="doc-item"><input type="checkbox" name="documentos" value="Certificado de hipotecas y gravámenes"><span>Certificado de hipotecas y gravámenes</span></label>
-            <label class="doc-item"><input type="checkbox" name="documentos" value="Posesión efectiva o inscripción de herencia"><span>Posesión efectiva (si es herencia)</span></label>
-            <label class="doc-item"><input type="checkbox" name="documentos" value="Certificado de avalúo fiscal (SII)"><span>Certificado de avalúo fiscal (SII)</span></label>
-            <label class="doc-item"><input type="checkbox" name="documentos" value="No estoy seguro / no los tengo"><span>No estoy seguro / no los tengo</span></label>
+        <!-- Paso 3: Subir documentos -->
+        <div class="wizard-step" data-step="3" data-step-name="Tus documentos">
+          <p class="wizard-help"><strong>Sube los documentos que tengas.</strong> Mientras más subas, mejor el análisis &mdash; pero con uno basta para empezar.</p>
+          <div class="upload-zone" id="estudioDrop" tabindex="0" role="button" aria-label="Subir documentos">
+            <input type="file" id="estudioFiles" accept=".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/png,image/jpeg,image/webp" multiple hidden>
+            <div class="upload-icon" aria-hidden="true">&#128196;</div>
+            <p class="upload-title">Arrastra tus archivos aquí o <span class="upload-link">elígelos desde tu dispositivo</span></p>
+            <p class="upload-hint">PDF, JPG o PNG &middot; hasta 10 MB c/u &middot; máximo 6 archivos</p>
           </div>
+          <ul class="upload-list" id="estudioFileList" aria-live="polite"></ul>
+          <p class="upload-suggest">Ideales: copia de inscripción de dominio vigente, certificado de hipotecas y gravámenes, escritura de compraventa, avalúo fiscal del SII.</p>
           <div class="wizard-nav">
             <button type="button" class="btn-step btn-step-back" data-back>&larr; Atrás</button>
-            <button type="button" class="btn-step btn-step-next" data-next>Continuar &rarr;</button>
+            <button type="button" class="btn-step btn-step-next" data-next disabled>Continuar &rarr;</button>
           </div>
         </div>
 
@@ -1220,24 +1296,29 @@
             <button type="button" class="btn-step btn-step-back" data-back>&larr; Atrás</button>
             <button type="submit" class="btn-submit btn-submit-seller">
               <span class="spinner"></span>
-              <span class="btn-text">Quiero mi estudio de título gratis</span>
+              <span class="btn-text">Generar mi estudio con IA</span>
             </button>
           </div>
-          <p class="form-micro-copy">Gratis y sin compromiso. Respuesta en menos de 24 horas.</p>
+          <p class="form-micro-copy">Gratis y confidencial. La IA entrega un análisis preliminar al instante; un abogado puede revisarlo a fondo después.</p>
         </div>
       </form>
+
+      <!-- Estado de carga mientras la IA analiza -->
+      <div class="estudio-loading" id="estudioLoading" hidden>
+        <div class="estudio-spinner"></div>
+        <h3>Analizando tus documentos&hellip;</h3>
+        <p id="estudioLoadingMsg">Subiendo y leyendo tus documentos con IA. Esto puede tardar hasta 1 minuto.</p>
+      </div>
+
+      <!-- Resultado del estudio (se llena por JS) -->
+      <div class="estudio-result" id="estudioResult" hidden></div>
+
+      <div id="estudioFallback">
       <div class="form-divider">o si prefieres</div>
       <a href="https://wa.me/56994495238?text=Hola%2C%20quiero%20un%20estudio%20de%20t%C3%ADtulo%20gratis%20de%20mi%20propiedad" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="Pedir estudio de título por WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Pedirlo por WhatsApp
       </a>
-      <div class="success-msg" id="estudioSuccess">
-        <h3>&#10003; ¡En camino!</h3>
-        <p>Estamos preparando tu estudio de título. <strong>Para avanzar más rápido, envíanos las escrituras y documentos por WhatsApp</strong> — así un abogado los revisa hoy mismo.</p>
-        <a href="https://wa.me/56994495238?text=Hola%2C%20quiero%20enviar%20los%20documentos%20de%20mi%20propiedad%20para%20el%20estudio%20de%20t%C3%ADtulo" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" style="margin-top:16px;" aria-label="Enviar documentos por WhatsApp">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Enviar documentos por WhatsApp
-        </a>
       </div>
     </div>
   </div>
@@ -1765,7 +1846,246 @@
   // Unified contact form: tipo_lead comes from the selected option button.
   const getContactOption = () => (document.getElementById('contactOption') || {}).value || 'vendedor';
   handleFormSubmit(document.getElementById('contactForm'), getContactOption, 'contacto', 'contactSuccess');
-  handleFormSubmit(document.getElementById('estudioForm'), 'estudio_titulo', 'estudio-titulo', 'estudioSuccess');
+  // ── Estudio de título con IA: subida de documentos + análisis con Claude ──
+  (function initEstudioIA() {
+    const SUPABASE_URL = 'https://alksowkwsnjeesmnosvg.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_uR65ixdIedeOR8Zo-PKNsA_nBJF8W3F';
+    const BUCKET = 'estudios-titulo';
+    const API_URL = '/api/estudio-titulo';
+    const MAX_FILES = 6;
+    const MAX_BYTES = 10 * 1024 * 1024;
+    const OK_TYPES = ['application/pdf', 'image/png', 'image/jpeg', 'image/webp'];
+    const WA_PATH = 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z';
+
+    const form = document.getElementById('estudioForm');
+    if (!form) return;
+    const drop = document.getElementById('estudioDrop');
+    const input = document.getElementById('estudioFiles');
+    const listEl = document.getElementById('estudioFileList');
+    const nextBtn = form.querySelector('.wizard-step[data-step="3"] [data-next]');
+    const loadingEl = document.getElementById('estudioLoading');
+    const loadingMsg = document.getElementById('estudioLoadingMsg');
+    const resultEl = document.getElementById('estudioResult');
+    const fallbackEl = document.getElementById('estudioFallback');
+
+    let files = []; // [{ file, error }]
+
+    function escapeHtml(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    }
+    function val(x) { return (x === null || x === undefined || String(x).trim() === '') ? null : String(x); }
+    function fmtSize(b) {
+      if (b < 1024) return b + ' B';
+      if (b < 1048576) return Math.round(b / 1024) + ' KB';
+      return (b / 1048576).toFixed(1) + ' MB';
+    }
+    function normType(f) {
+      let t = (f.type || '').toLowerCase();
+      if (t === 'image/jpg') t = 'image/jpeg';
+      if (!t) {
+        const ext = (f.name || '').toLowerCase().split('.').pop();
+        if (ext === 'pdf') t = 'application/pdf';
+        else if (ext === 'png') t = 'image/png';
+        else if (ext === 'jpg' || ext === 'jpeg') t = 'image/jpeg';
+        else if (ext === 'webp') t = 'image/webp';
+      }
+      return t;
+    }
+    function validate(f) {
+      if (OK_TYPES.indexOf(normType(f)) === -1) return 'Formato no soportado';
+      if (f.size > MAX_BYTES) return 'Supera 10 MB';
+      return null;
+    }
+    function addFiles(fileList) {
+      for (const f of fileList) {
+        if (files.length >= MAX_FILES) break;
+        if (files.some(x => x.file.name === f.name && x.file.size === f.size)) continue;
+        files.push({ file: f, error: validate(f) });
+      }
+      render();
+    }
+    function removeAt(i) { files.splice(i, 1); render(); }
+    function render() {
+      listEl.innerHTML = '';
+      files.forEach((item, i) => {
+        const li = document.createElement('li');
+        li.className = 'upload-file' + (item.error ? ' uf-error' : '');
+        li.innerHTML =
+          '<span aria-hidden="true">' + (item.error ? '&#9888;&#65039;' : '&#128196;') + '</span>' +
+          '<span class="uf-name">' + escapeHtml(item.file.name) + '</span>' +
+          (item.error ? '<span class="uf-err">' + escapeHtml(item.error) + '</span>'
+                      : '<span class="uf-size">' + fmtSize(item.file.size) + '</span>') +
+          '<button type="button" class="uf-remove" aria-label="Quitar archivo">&times;</button>';
+        li.querySelector('.uf-remove').addEventListener('click', () => removeAt(i));
+        listEl.appendChild(li);
+      });
+      if (nextBtn) nextBtn.disabled = files.filter(x => !x.error).length === 0;
+    }
+
+    drop.addEventListener('click', () => input.click());
+    drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+    input.addEventListener('change', () => { addFiles(input.files); input.value = ''; });
+    ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('dragover'); }));
+    ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('dragover'); }));
+    drop.addEventListener('drop', e => { if (e.dataTransfer && e.dataTransfer.files) addFiles(e.dataTransfer.files); });
+
+    function sessionId() {
+      try {
+        let v = localStorage.getItem('ex_sid');
+        if (!v) {
+          v = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2);
+          localStorage.setItem('ex_sid', v);
+        }
+        return v;
+      } catch (e) { return 'no-storage'; }
+    }
+    function safeName(n) {
+      return (n || 'doc').normalize('NFKD').replace(/[^\w.\-]+/g, '_').replace(/_+/g, '_').slice(-80);
+    }
+    async function uploadOne(file, sid, idx) {
+      const path = 'estudios/' + sid + '/' + Date.now() + '-' + idx + '-' + safeName(file.name);
+      const url = SUPABASE_URL + '/storage/v1/object/' + BUCKET + '/' + path.split('/').map(encodeURIComponent).join('/');
+      const r = await fetch(url, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY,
+          'Content-Type': normType(file) || 'application/octet-stream',
+          'x-upsert': 'true'
+        },
+        body: file
+      });
+      if (!r.ok) throw new Error('upload ' + r.status);
+      return { path: path, name: file.name, type: normType(file), size: file.size };
+    }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      hideFormError(form);
+      const valid = files.filter(x => !x.error);
+      if (valid.length === 0) { showFormError(form, 'Sube al menos un documento (PDF, JPG o PNG) para generar tu estudio.'); return; }
+      if (!form.checkValidity()) { form.reportValidity(); showFormError(form, 'Completa tus datos de contacto antes de generar el estudio.'); return; }
+
+      const btn = form.querySelector('.btn-submit');
+      btn.classList.add('loading'); btn.disabled = true;
+      form.style.display = 'none';
+      if (fallbackEl) fallbackEl.hidden = true;
+      loadingEl.hidden = false;
+
+      const sid = sessionId();
+      const fd = new FormData(form);
+      const meta = {
+        motivo: val(fd.get('motivo')),
+        tipo: val(fd.get('tipo')),
+        comuna: val(fd.get('comuna')),
+        rol: val(fd.get('rol')),
+        nombre: val(fd.get('nombre')),
+        telefono: val(fd.get('telefono')),
+        email: val(fd.get('email')),
+        session_id: sid,
+        url: location.href
+      };
+
+      try {
+        loadingMsg.textContent = 'Subiendo tus documentos de forma segura…';
+        const archivos = [];
+        for (let i = 0; i < valid.length; i++) archivos.push(await uploadOne(valid[i].file, sid, i));
+
+        loadingMsg.textContent = 'Leyendo y analizando tus documentos con IA. Esto puede tardar hasta 1 minuto…';
+        const resp = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.assign({ archivos: archivos }, meta))
+        });
+        const data = await resp.json().catch(() => ({}));
+        if (!resp.ok || !data.ok || !data.estudio) throw new Error((data && data.error) || ('http ' + resp.status));
+
+        renderResult(data.estudio, meta);
+        if (typeof gtag === 'function') {
+          gtag('event', 'estudio_titulo_ia', { nivel_riesgo: data.estudio.nivel_riesgo, nivel_confianza: data.estudio.nivel_confianza, n_docs: valid.length });
+          gtag('event', 'generate_lead', { tipo_lead: 'estudio_titulo', seccion: 'estudio-titulo' });
+        }
+        if (typeof window.expansielTrack === 'function') {
+          window.expansielTrack('estudio_titulo_ia', { nivel_riesgo: data.estudio.nivel_riesgo, n_docs: valid.length, motivo: meta.motivo });
+        }
+      } catch (err) {
+        console.error('Estudio IA error:', err);
+        loadingEl.hidden = true;
+        form.style.display = '';
+        if (fallbackEl) fallbackEl.hidden = false;
+        btn.classList.remove('loading'); btn.disabled = false;
+        showFormError(form, 'No pudimos generar tu estudio en este momento. Inténtalo de nuevo o escríbenos por WhatsApp (+56 9 9449 5238) y lo revisamos contigo.');
+      }
+    });
+
+    function renderResult(est, meta) {
+      const riskLabels = { sin_alertas: 'Sin alertas', atencion: 'Requiere atención', riesgo_alto: 'Riesgo alto', indeterminado: 'Indeterminado' };
+      const confLabels = { alto: 'Confianza alta', medio: 'Confianza media', bajo: 'Confianza baja' };
+      const risk = ['sin_alertas', 'atencion', 'riesgo_alto', 'indeterminado'].indexOf(est.nivel_riesgo) !== -1 ? est.nivel_riesgo : 'indeterminado';
+      const dp = est.datos_propiedad || {};
+      const dpRows = [
+        ['Propietario según título', dp.propietario_segun_titulo],
+        ['Rol SII', dp.rol_sii],
+        ['Comuna', dp.comuna],
+        ['Conservador', dp.conservador],
+        ['Fojas', dp.inscripcion_fojas],
+        ['Número', dp.inscripcion_numero],
+        ['Año inscripción', dp.inscripcion_anio]
+      ].filter(r => val(r[1]));
+
+      let html = '';
+      html += '<div class="er-head"><h3>Tu estudio de título preliminar</h3>'
+            + '<span class="risk-badge risk-' + risk + '">' + escapeHtml(riskLabels[risk] || risk) + '</span>'
+            + (confLabels[est.nivel_confianza] ? '<span class="er-confianza">' + escapeHtml(confLabels[est.nivel_confianza]) + '</span>' : '')
+            + '</div>';
+      html += '<p class="er-resumen">' + escapeHtml(est.resumen || '') + '</p>';
+      html += '<div class="er-disclaimer"><strong>Importante:</strong> este es un análisis preliminar generado con inteligencia artificial a partir de los documentos que subiste. No constituye un estudio de título definitivo ni asesoría legal. Una IA puede pasar por alto detalles que solo se detectan revisando los originales en el Conservador de Bienes Raíces. Un abogado de Resuelve Propiedades puede confirmarlo gratis.</div>';
+
+      if (dpRows.length) {
+        html += '<div class="er-block"><h4>&#127968; Datos de la propiedad</h4><div class="er-data">';
+        dpRows.forEach(r => { html += '<div><span>' + escapeHtml(r[0]) + '</span>' + escapeHtml(r[1]) + '</div>'; });
+        html += '</div></div>';
+      }
+      if (Array.isArray(est.documentos_detectados) && est.documentos_detectados.length) {
+        html += '<div class="er-block"><h4>&#9989; Documentos que recibimos</h4><ul class="er-list">';
+        est.documentos_detectados.forEach(d => { html += '<li class="er-item er-detected"><strong>' + escapeHtml(d.documento) + '</strong>' + escapeHtml(d.observacion || '') + '</li>'; });
+        html += '</ul></div>';
+      }
+      if (Array.isArray(est.documentos_faltantes) && est.documentos_faltantes.length) {
+        html += '<div class="er-block"><h4>&#128203; Documentos que te faltan</h4><ul class="er-list">';
+        est.documentos_faltantes.forEach(d => {
+          html += '<li class="er-item er-missing"><strong>' + escapeHtml(d.documento) + '</strong>' + escapeHtml(d.para_que_sirve || '')
+                + (val(d.como_obtenerlo) ? '<em>Cómo obtenerlo: ' + escapeHtml(d.como_obtenerlo) + '</em>' : '') + '</li>';
+        });
+        html += '</ul></div>';
+      }
+      if (Array.isArray(est.hallazgos) && est.hallazgos.length) {
+        html += '<div class="er-block"><h4>&#128269; Hallazgos y alertas</h4><ul class="er-list">';
+        est.hallazgos.forEach(h => {
+          const sev = ['riesgo', 'atencion', 'info'].indexOf(h.severidad) !== -1 ? h.severidad : 'info';
+          html += '<li class="er-item sev-' + sev + '"><strong>' + escapeHtml(h.titulo) + '</strong>' + escapeHtml(h.detalle || '') + '</li>';
+        });
+        html += '</ul></div>';
+      }
+      if (Array.isArray(est.recomendaciones) && est.recomendaciones.length) {
+        html += '<div class="er-block"><h4>&#128161; Recomendaciones</h4><ul class="er-recs">';
+        est.recomendaciones.forEach(r => { html += '<li>' + escapeHtml(r) + '</li>'; });
+        html += '</ul></div>';
+      }
+      const waMsg = 'Hola, hice el estudio de título con IA en la web' + (meta && meta.comuna ? (' (' + meta.comuna + ')') : '') + ' y quiero que un abogado lo revise.';
+      const waHref = 'https://wa.me/56994495238?text=' + encodeURIComponent(waMsg);
+      html += '<div class="er-next"><strong>' + escapeHtml(est.siguiente_paso || 'Conversa gratis con un abogado para revisar tu caso en detalle.') + '</strong></div>';
+      html += '<div class="er-cta" style="margin-top:16px;">'
+            + '<a href="' + waHref + '" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="Hablar con un abogado por WhatsApp">'
+            + '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="' + WA_PATH + '"/></svg>'
+            + 'Que un abogado revise mi estudio</a></div>';
+
+      resultEl.innerHTML = html;
+      loadingEl.hidden = true;
+      resultEl.hidden = false;
+      resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  })();
 
   // ── Unified form option selector (vender / abogado / inversionista) ──
   (function initContactOptions() {

@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://resuelvepropiedades.cl/blog/</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -401,6 +401,14 @@
   <url>
     <loc>https://resuelvepropiedades.cl/blog/deslinde-vecino-disputas-limites-terreno-chile/</loc>
     <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- SEO Phase 9: blog documentos para comprar (Mayo 29, 2026) -->
+  <url>
+    <loc>https://resuelvepropiedades.cl/blog/documentos-comprar-propiedad-chile/</loc>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -44,6 +44,12 @@ DOCUMENTOS QUE NORMALMENTE COMPONEN UN ESTUDIO COMPLETO (usalos como checklist)
 9. Si es herencia: posesion efectiva inscrita, inscripcion especial de herencia y, si aplica, pago o exencion del impuesto a la herencia.
 10. Si hay sociedad conyugal o varios duenos: documentos que acrediten estado civil, regimen patrimonial y comparecencia de todos los titulares.
 11. Certificado de matrimonio / defuncion cuando sea relevante para la cadena.
+12. Certificado de gastos comunes al dia (si es departamento o condominio) — lo emite la administracion; evita heredar deudas de gastos comunes del vendedor.
+13. Boletas o certificados de servicios al dia (agua, luz, gas) — para descartar consumos impagos asociados a la propiedad.
+14. Certificado de informaciones previas (CIP) de la Municipalidad — uso de suelo y normas urbanisticas aplicables al terreno.
+15. Reglamento de copropiedad (si aplica: edificios y condominios) — normas de uso, estacionamientos, bodegas y prohibiciones que regiran al comprador.
+
+NOTA DE PRIORIDAD: de toda esta lista, el ESTUDIO DE TITULOS y el CERTIFICADO DE HIPOTECAS, GRAVAMENES Y PROHIBICIONES son los dos documentos que mas problemas evitan, porque ahi aparecen deudas, hipotecas, embargos o conflictos de dominio que no se ven a simple vista. Si alguno de estos dos falta, destacalo como prioritario en los documentos faltantes.
 
 QUE DEBES HACER
 - Identifica que documentos efectivamente recibiste (clasificalos por tipo) y extrae los datos clave que veas (propietario segun titulo, rol SII, fojas/numero/ano de inscripcion, Conservador, comuna).

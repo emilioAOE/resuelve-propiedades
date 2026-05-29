@@ -89,12 +89,12 @@
     try {
       var form = e.target;
       if (!form || form.tagName !== "FORM") return;
-      // El #estudioForm crea su propio lead enriquecido vía /api/estudio-titulo
-      // (source=estudio_titulo_ia, con el estudio completo). Omitimos payload.values
-      // en ese caso para no duplicar el lead: el trigger del hub solo crea un lead
-      // 'form' cuando el form_submit trae `values`. El evento form_submit igual se
-      // registra (sirve para las métricas de forms/contactos).
-      var skipValues = form.id === "estudioForm" || form.hasAttribute("data-analytics-no-lead");
+      // Captura estándar: TODOS los forms (incluido #estudioForm) mandan sus `values`
+      // y el hub les crea un lead 'form' visible en el dashboard. Un form puede optar
+      // por NO crear lead con el atributo data-analytics-no-lead (p. ej. si ya crea su
+      // propio lead por otra vía); ahí el evento form_submit igual se registra, solo se
+      // omiten los `values` (el trigger del hub solo crea lead 'form' si hay `values`).
+      var skipValues = form.hasAttribute("data-analytics-no-lead");
       var names = [], values = {}, hasEmail = false, hasPhone = false;
       var SKIP = ["password", "hidden", "file", "submit", "button", "reset"];
       for (var i = 0; i < form.elements.length; i++) {
@@ -120,8 +120,8 @@
       };
       // Capturamos los valores del form (con SKIP de password/hidden/file/submit).
       // Util para forms de interaccion (evaluadores, wizards, encuestas, etc).
-      // skipValues: forms que ya mandan su propio lead (ej. #estudioForm) no
-      // adjuntan values, para no crear un lead 'form' duplicado en el hub.
+      // skipValues (data-analytics-no-lead): forms que ya crean su propio lead por
+      // otra vía no adjuntan values, para no duplicar el lead 'form' en el hub.
       if (!skipValues) payload.values = values;
       track("form_submit", payload);
     } catch (e) {}

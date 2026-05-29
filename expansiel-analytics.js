@@ -89,6 +89,12 @@
     try {
       var form = e.target;
       if (!form || form.tagName !== "FORM") return;
+      // El #estudioForm crea su propio lead enriquecido vía /api/estudio-titulo
+      // (source=estudio_titulo_ia, con el estudio completo). Omitimos payload.values
+      // en ese caso para no duplicar el lead: el trigger del hub solo crea un lead
+      // 'form' cuando el form_submit trae `values`. El evento form_submit igual se
+      // registra (sirve para las métricas de forms/contactos).
+      var skipValues = form.id === "estudioForm" || form.hasAttribute("data-analytics-no-lead");
       var names = [], values = {}, hasEmail = false, hasPhone = false;
       var SKIP = ["password", "hidden", "file", "submit", "button", "reset"];
       for (var i = 0; i < form.elements.length; i++) {
@@ -112,9 +118,11 @@
         has_email: hasEmail,
         has_phone: hasPhone
       };
-      // Capturamos los valores del form siempre (con SKIP de password/hidden/file/submit).
+      // Capturamos los valores del form (con SKIP de password/hidden/file/submit).
       // Util para forms de interaccion (evaluadores, wizards, encuestas, etc).
-      payload.values = values;
+      // skipValues: forms que ya mandan su propio lead (ej. #estudioForm) no
+      // adjuntan values, para no crear un lead 'form' duplicado en el hub.
+      if (!skipValues) payload.values = values;
       track("form_submit", payload);
     } catch (e) {}
   }, true);

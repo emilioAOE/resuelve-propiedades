@@ -1,0 +1,12 @@
+{
+  "name": "resuelve-propiedades",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio de Resuelve Propiedades + API serverless del estudio de titulo IA",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.1"
+  }
+}

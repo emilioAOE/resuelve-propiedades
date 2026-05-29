@@ -1,4 +1,9 @@
 {
   "trailingSlash": true,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "functions": {
+    "api/estudio-titulo.js": {
+      "maxDuration": 60
+    }
+  }
 }

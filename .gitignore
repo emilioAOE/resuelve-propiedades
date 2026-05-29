@@ -1,1 +1,3 @@
 _serve.js
+node_modules/
+.vercel

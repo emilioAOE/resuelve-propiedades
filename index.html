@@ -1941,8 +1941,7 @@
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY,
-          'Content-Type': normType(file) || 'application/octet-stream',
-          'x-upsert': 'true'
+          'Content-Type': normType(file) || 'application/octet-stream'
         },
         body: file
       });

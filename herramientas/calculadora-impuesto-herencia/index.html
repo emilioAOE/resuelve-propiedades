@@ -285,7 +285,7 @@
       <h2>Tus datos</h2>
       <p class="calc-sub">Completa los campos. Los resultados aparecen al lado.</p>
 
-      <form id="calc-form" onsubmit="event.preventDefault(); calcular();">
+      <form id="calc-form" data-analytics-no-lead onsubmit="event.preventDefault(); calcular();">
         <div class="form-group">
           <label for="valor">Valor total del patrimonio (CLP)</label>
           <input type="number" id="valor" inputmode="numeric" min="0" step="1000000" placeholder="Ej: 150000000" required>
@@ -352,8 +352,13 @@
         </div>
 
         <div class="result-cta">
-          <p>¿Necesitas ayuda para tramitar o vender una propiedad heredada?</p>
-          <a href="https://wa.me/56957022390?text=Hola%2C%20us%C3%A9%20la%20calculadora%20de%20impuesto%20a%20la%20herencia%20y%20necesito%20orientaci%C3%B3n%20%28ref%3A%20resuelve-propiedades%29" target="_blank" rel="noopener noreferrer">Consulta gratis por WhatsApp</a>
+          <p><strong>¿Te enviamos el desglose detallado y un abogado te orienta gratis?</strong><br>Dejá tu WhatsApp y te contactamos:</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+            <input type="tel" id="calc-wa" inputmode="tel" placeholder="+56 9 1234 5678" aria-label="Tu WhatsApp" style="flex:1;min-width:160px;padding:10px 12px;border:1px solid #cfd8d2;border-radius:8px;font-size:1em;">
+            <button type="button" onclick="enviarContactoCalc()" style="background:var(--color-warm);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-weight:600;cursor:pointer;">Recibir por WhatsApp</button>
+          </div>
+          <p id="calc-wa-ok" style="display:none;color:#1a7a3d;font-weight:600;margin-top:8px;">¡Listo! Un especialista te contactará a la brevedad. ✅</p>
+          <p style="margin-top:10px;font-size:.85em;"><a href="https://wa.me/56957022390?text=Hola%2C%20us%C3%A9%20la%20calculadora%20de%20impuesto%20a%20la%20herencia%20y%20necesito%20orientaci%C3%B3n%20%28ref%3A%20resuelve-propiedades%29" target="_blank" rel="noopener noreferrer">o escríbenos directo por WhatsApp &rarr;</a></p>
         </div>
 
         <div class="result-disclaimer">
@@ -598,10 +603,39 @@
       });
     }
 
+    // Guardamos el contexto del cálculo para adjuntarlo al lead si dejan WhatsApp.
+    window._calcCtx = {
+      herramienta: 'calculadora-impuesto-herencia',
+      valor: Math.round(valor),
+      deducciones: Math.round(deducciones),
+      herederos: herederos,
+      parentesco: parentesco,
+      impuesto_estimado: Math.round(impTotal)
+    };
+
     // Scroll to result on mobile
     if (window.innerWidth < 860) {
       document.getElementById('result-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  // Captura de contacto: crea un lead real (con el contexto del cálculo) cuando
+  // el usuario deja su WhatsApp tras ver el resultado.
+  function enviarContactoCalc() {
+    var inp = document.getElementById('calc-wa');
+    var phone = (inp.value || '').trim();
+    if (phone.replace(/\D/g, '').length < 8) {
+      alert('Escribe un WhatsApp válido (ej: +56 9 1234 5678) para enviarte el desglose.');
+      inp.focus();
+      return;
+    }
+    var ctx = window._calcCtx || { herramienta: 'calculadora-impuesto-herencia' };
+    if (typeof window.expansielTrack === 'function') {
+      window.expansielTrack('form_submit', { form_id: 'calc-herencia', values: Object.assign({ whatsapp: phone }, ctx) });
+    }
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { tipo_lead: 'calculadora_herencia' });
+    document.getElementById('calc-wa-ok').style.display = 'block';
+    inp.disabled = true;
   }
 </script>
 <script>

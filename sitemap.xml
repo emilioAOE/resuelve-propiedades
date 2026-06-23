@@ -412,4 +412,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- SEO Phase 10: 3 blogs alta intencion (Junio 23, 2026) -->
+  <url>
+    <loc>https://www.resuelvepropiedades.cl/blog/comprar-propiedad-remate-judicial-chile/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.resuelvepropiedades.cl/blog/regularizar-ampliacion-ley-del-mono-chile/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.resuelvepropiedades.cl/blog/como-subdividir-un-terreno-chile/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

@@ -363,6 +363,19 @@
         Ingresa los datos y presiona <strong>Calcular impuesto</strong>.
       </div>
 
+      <!-- Compuerta: el resultado ya está calculado, se muestra al dejar un contacto -->
+      <div id="result-gate" style="display:none;background:#f4f8f5;border:1px solid #cfd8d2;border-radius:12px;padding:22px 18px;text-align:center;">
+        <div style="font-size:2rem;line-height:1;">✅</div>
+        <p style="font-weight:700;font-size:1.15em;margin:10px 0 4px;color:var(--color-dark);">Tu resultado está listo</p>
+        <p style="margin:0 0 14px;color:var(--color-muted);font-size:.95em;">Dinos a dónde te lo enviamos y lo ves al tiro. Así también podemos orientarte con el siguiente paso, gratis y sin compromiso.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+          <input type="text" id="gate-contacto" inputmode="email" autocomplete="tel email" placeholder="Tu WhatsApp o correo" aria-label="Tu WhatsApp o correo" style="flex:1;min-width:200px;max-width:280px;padding:11px 12px;border:1px solid #cfd8d2;border-radius:8px;font-size:1em;">
+          <button type="button" onclick="verResultado()" style="background:var(--color-warm);color:#fff;border:none;border-radius:8px;padding:11px 20px;font-weight:700;cursor:pointer;white-space:nowrap;">Ver mi resultado →</button>
+        </div>
+        <p id="gate-err" style="display:none;color:#b91c1c;font-weight:600;margin:8px 0 0;font-size:.9em;">Escribe un WhatsApp válido (ej: +56 9 1234 5678) o un correo.</p>
+        <p style="margin:12px 0 0;font-size:.8em;color:var(--color-muted);">Sin spam: lo usa solo nuestro equipo para ayudarte con tu herencia.</p>
+      </div>
+
       <div id="result" class="result-block">
         <div class="result-headline">
           <div class="label">Impuesto total estimado</div>
@@ -392,12 +405,14 @@
             <a href="https://www.resuelvepropiedades.cl/#estudio-titulo" style="display:inline-block;background:var(--color-warm);color:#fff;text-decoration:none;border-radius:8px;padding:11px 18px;font-weight:700;">Subir documentos y pedir estudio gratis &rarr;</a>
           </div>
 
-          <p style="margin:14px 0 6px;">¿Prefieres que te contactemos? Deja tu WhatsApp y un especialista te escribe (puedes enviarnos tus papeles por ahí):</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <input type="tel" id="calc-wa" inputmode="tel" placeholder="+56 9 1234 5678" aria-label="Tu WhatsApp" style="flex:1;min-width:160px;padding:10px 12px;border:1px solid #cfd8d2;border-radius:8px;font-size:1em;">
-            <button type="button" onclick="enviarContactoCalc()" style="background:#1a7a3d;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-weight:600;cursor:pointer;white-space:nowrap;">Recibir por WhatsApp</button>
+          <div id="calc-wa-block">
+            <p style="margin:14px 0 6px;">¿Prefieres que te contactemos? Deja tu WhatsApp y un especialista te escribe (puedes enviarnos tus papeles por ahí):</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <input type="tel" id="calc-wa" inputmode="tel" placeholder="+56 9 1234 5678" aria-label="Tu WhatsApp" style="flex:1;min-width:160px;padding:10px 12px;border:1px solid #cfd8d2;border-radius:8px;font-size:1em;">
+              <button type="button" onclick="enviarContactoCalc()" style="background:#1a7a3d;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-weight:600;cursor:pointer;white-space:nowrap;">Recibir por WhatsApp</button>
+            </div>
+            <p id="calc-wa-ok" style="display:none;color:#1a7a3d;font-weight:600;margin-top:8px;">¡Listo! Un especialista te contactará a la brevedad. ✅</p>
           </div>
-          <p id="calc-wa-ok" style="display:none;color:#1a7a3d;font-weight:600;margin-top:8px;">¡Listo! Un especialista te contactará a la brevedad. ✅</p>
           <p style="margin-top:10px;font-size:.85em;"><a href="https://wa.me/56957022390?text=Hola%2C%20us%C3%A9%20la%20calculadora%20de%20impuesto%20a%20la%20herencia%20y%20necesito%20orientaci%C3%B3n%20%28ref%3A%20resuelve-propiedades%29" target="_blank" rel="noopener noreferrer">o escríbenos directo por WhatsApp &rarr;</a></p>
         </div>
 
@@ -605,9 +620,9 @@
     const impTotal = impCLPporHeredero * herederos;
     const tasaEfectiva = acervo > 0 ? (impTotal / acervo) * 100 : 0;
 
-    // Render
+    // Render: los datos quedan listos en el DOM, pero si aún no tenemos un
+    // contacto, el resultado se muestra detrás de la compuerta (result-gate).
     document.getElementById('result-empty').style.display = 'none';
-    document.getElementById('result').classList.add('show');
 
     document.getElementById('r-total').textContent = fmt(impTotal);
     document.getElementById('r-effective').textContent = 'Tasa efectiva: ' + tasaEfectiva.toFixed(2) + '% sobre el acervo líquido';
@@ -653,10 +668,80 @@
       impuesto_estimado: Math.round(impTotal)
     };
 
+    // Compuerta de contacto: si ya lo dejó antes, directo al resultado
+    // (y se reenvía el lead solo si los números cambiaron).
+    var contactoGuardado = null;
+    try { contactoGuardado = localStorage.getItem('rp_calc_contact'); } catch (e) {}
+    if (contactoGuardado) {
+      mostrarResultado();
+      reenviarSiCambio(contactoGuardado);
+    } else {
+      document.getElementById('result').classList.remove('show');
+      document.getElementById('result-gate').style.display = 'block';
+    }
+
     // Scroll to result on mobile
     if (window.innerWidth < 860) {
       document.getElementById('result-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  function esFono(v) {
+    return v.indexOf('@') < 0 && v.replace(/\D/g, '').length >= 8;
+  }
+  function esMail(v) {
+    return /\S+@\S+\.\S+/.test(v);
+  }
+  function contactoAValues(contacto) {
+    return esFono(contacto) ? { whatsapp: contacto } : { email: contacto };
+  }
+
+  function mostrarResultado() {
+    document.getElementById('result-gate').style.display = 'none';
+    document.getElementById('result').classList.add('show');
+  }
+
+  // La compuerta: valida el contacto, crea el lead (con los números del
+  // cálculo) y recién ahí muestra el resultado. El contacto queda guardado
+  // para que la próxima visita no tenga que dejarlo de nuevo.
+  function verResultado() {
+    var inp = document.getElementById('gate-contacto');
+    var v = (inp.value || '').trim();
+    var err = document.getElementById('gate-err');
+    if (!esFono(v) && !esMail(v)) {
+      err.style.display = 'block';
+      inp.focus();
+      return;
+    }
+    err.style.display = 'none';
+    var values = Object.assign(contactoAValues(v), window._calcCtx || {});
+    if (typeof window.expansielTrack === 'function') {
+      window.expansielTrack('form_submit', { form_id: 'calc-herencia', values: values });
+    }
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { tipo_lead: 'calculadora_herencia' });
+    try {
+      localStorage.setItem('rp_calc_contact', v);
+      sessionStorage.setItem('rp_calc_sent', JSON.stringify(window._calcCtx || {}));
+    } catch (e) {}
+    // Si dejó fono acá, el bloque de "deja tu WhatsApp" de abajo sobra.
+    if (esFono(v)) {
+      var blk = document.getElementById('calc-wa-block');
+      if (blk) blk.style.display = 'none';
+    }
+    mostrarResultado();
+  }
+
+  // Recalculó con otros números y ya lo conocemos: actualizamos su lead
+  // (el hub unifica por teléfono/correo, así que no se duplica la persona).
+  function reenviarSiCambio(contacto) {
+    try {
+      var cur = JSON.stringify(window._calcCtx || {});
+      if (sessionStorage.getItem('rp_calc_sent') === cur) return;
+      if (typeof window.expansielTrack === 'function') {
+        window.expansielTrack('form_submit', { form_id: 'calc-herencia', values: Object.assign(contactoAValues(contacto), window._calcCtx || {}) });
+      }
+      sessionStorage.setItem('rp_calc_sent', cur);
+    } catch (e) {}
   }
 
   // Captura de contacto: crea un lead real (con el contexto del cálculo) cuando
